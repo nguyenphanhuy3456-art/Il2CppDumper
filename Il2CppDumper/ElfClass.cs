@@ -8,40 +8,16 @@ namespace Il2CppDumper
 {
     public class Elf32_Ehdr
     {
-        // 0x7f followed by ELF in ascii
-        public uint m_dwFormat;
-
-        // 1 - 32 bit
-        // 2 - 64 bit
-        public byte m_arch;
-
-        // 1 - little endian
-        // 2 - big endian
-        public byte m_endian;
-
-        // 1 is original elf format
-        public byte m_version;
-
-        // set based on OS, refer to OSABI enum
-        public byte m_osabi;
-
-        // refer to elf documentation
-        public byte m_osabi_ver;
-
-        // unused
-        public byte[] e_pad;//byte[7]
-
-        // 1 - relocatable
-        // 2 - executable
-        // 3 - shared
-        // 4 - core
+        public uint ei_mag;
+        public byte ei_class;
+        public byte ei_data;
+        public byte ei_version;
+        public byte ei_osabi;
+        public byte ei_abiversion;
+        public byte[] ei_pad;
         public ushort e_type;
-
-        // refer to isa enum
         public ushort e_machine;
-
         public uint e_version;
-
         public uint e_entry;
         public uint e_phoff;
         public uint e_shoff;
@@ -82,11 +58,11 @@ namespace Il2CppDumper
 
     public class Elf32_Sym
     {
-        public uint sym_name;
-        public uint sym_value;
-        public uint sym_size;
-        public byte sym_info;
-        public byte sym_other;
-        public ushort sym_shndx;
+        public uint st_name;
+        public uint st_value;
+        public uint st_size;
+        public byte st_info;
+        public byte st_other;
+        public ushort st_shndx;
     }
 }
